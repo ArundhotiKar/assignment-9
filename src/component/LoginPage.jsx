@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const LoginPage = () => {
     return (
