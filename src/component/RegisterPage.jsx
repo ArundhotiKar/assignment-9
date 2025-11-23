@@ -1,11 +1,12 @@
 import React, { use } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 
 const RegisterPage = () => {
 
-    const {createUser, setUser}= use  (AuthContext);
+    const {createUser, setUser, googleLogin}= use  (AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -27,7 +28,22 @@ const RegisterPage = () => {
         .catch(error=>{
             console.log(error.message);
         })
+
+        navigate('/');
     }
+
+    // 🔥 Google Login Function
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const loggedUser = result.user;
+                setUser(loggedUser);
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
     return (
 
         <form onSubmit={handleRegister} className="flex items-center justify-center min-h-screen">
@@ -53,7 +69,7 @@ const RegisterPage = () => {
                 <button 
                     type="button" 
                     className="btn btn-secondary mt-3 w-full"
-                    // onClick={handleGoogleLogin}
+                    onClick={handleGoogleLogin}
                 >
                     Continue with Google
                 </button>
