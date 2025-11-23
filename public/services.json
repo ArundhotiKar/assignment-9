@@ -1,0 +1,74 @@
+[
+  {
+    "toyId": 1,
+    "toyName": "Lego Classic Bricks",
+    "sellerName": "Toys R Us Local",
+    "sellerEmail": "contact@toysruslocal.com",
+    "price": 49.99,
+    "rating": 4.7,
+    "availableQuantity": 75,
+    "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving.",
+    "pictureURL": "https://i.ibb.co.com/zTbRzBn6/toy1.jpg",
+    "subCategory": "Building Blocks"
+  },
+  {
+    "toyId": 2,
+    "toyName": "Hot Wheels Super Car Set",
+    "sellerName": "Speedy Toy Store",
+    "sellerEmail": "support@speedytoys.com",
+    "price": 29.50,
+    "rating": 4.5,
+    "availableQuantity": 120,
+    "description": "A premium collection of Hot Wheels cars with vibrant colors and durable metal bodies.",
+    "pictureURL": "https://i.ibb.co.com/4ZD4mnnc/toy2.png",
+    "subCategory": "Vehicles"
+  },
+  {
+    "toyId": 3,
+    "toyName": "Barbie Dream Doll",
+    "sellerName": "Doll House BD",
+    "sellerEmail": "hello@dollhousebd.com",
+    "price": 35.99,
+    "rating": 4.8,
+    "availableQuantity": 50,
+    "description": "A beautiful Barbie doll with stylish outfits and movable joints for creative play.",
+    "pictureURL": "https://i.ibb.co.com/0VvK2mYN/toy3.png",
+    "subCategory": "Dolls"
+  },
+  {
+    "toyId": 4,
+    "toyName": "Wooden Shape Sorter Box",
+    "sellerName": "Kidz World",
+    "sellerEmail": "info@kidzworld.com",
+    "price": 18.75,
+    "rating": 4.6,
+    "availableQuantity": 90,
+    "description": "An educational wooden toy for toddlers to learn shapes and colors.",
+    "pictureURL": "https://i.ibb.co.com/dsqv6s0F/toy4.png",
+    "subCategory": "Educational Toys"
+  },
+  {
+    "toyId": 5,
+    "toyName": "Remote Control Monster Truck",
+    "sellerName": "RC Universe",
+    "sellerEmail": "support@rcuniverse.com",
+    "price": 59.99,
+    "rating": 4.4,
+    "availableQuantity": 40,
+    "description": "A rugged RC truck capable of driving on rough surfaces.",
+    "pictureURL": "https://i.ibb.co.com/Zzq6fZvm/toy5.png",
+    "subCategory": "Remote Control"
+  },
+  {
+    "toyId": 6,
+    "toyName": "Stuffed Teddy Bear Premium",
+    "sellerName": "Soft Toys Hub",
+    "sellerEmail": "shop@softtoyshub.com",
+    "price": 22.00,
+    "rating": 4.9,
+    "availableQuantity": 150,
+    "description": "A super-soft teddy bear made with high-quality plush fabric.",
+    "pictureURL": "https://i.ibb.co.com/yBGv3LfH/toy6.png",
+    "subCategory": "Soft Toys"
+  }
+]
