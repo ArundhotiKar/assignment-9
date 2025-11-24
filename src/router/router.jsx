@@ -3,6 +3,7 @@ import HomeLayout from "../Layout/HomeLayout";
 import LoginPage from "../component/LoginPage";
 import RegisterPage from "../component/RegisterPage";
 import HomePage from "../component/HomePage";
+import MyProfile from "../component/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
         path:'/',
         element:<HomePage/>
       },
+      {
+         path:'/myprofile',
+         element: <MyProfile></MyProfile>
+      }
       
     ],
   },

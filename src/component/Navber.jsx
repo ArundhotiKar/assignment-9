@@ -30,6 +30,7 @@ const Navber = () => {
 
             <div>
                 <NavLink to="/" className="text-xl">Home</NavLink>
+                <NavLink to="/myprofile" className="text-xl ml-5"> My Profile </NavLink>
             </div>
 
             <div>
