@@ -5,6 +5,8 @@ import RegisterPage from "../component/RegisterPage";
 import HomePage from "../component/HomePage";
 import MyProfile from "../component/MyProfile";
 import PrivateRoute from "./PrivateRoute";
+import ViewMorePage from "../component/ViewMorePage";
+import ViewMoreEdu from "../component/ViewMoreEdu";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPage></RegisterPage>
+      },
+      {
+        path: "/viewmore/:id",
+        element: <ViewMorePage></ViewMorePage>
+      },
+      {
+        path:"/viewmoreforedu/:id",
+        element: <ViewMoreEdu></ViewMoreEdu>
       }
 
     ],

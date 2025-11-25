@@ -1,5 +1,6 @@
 import React from 'react';
 import { trendingToys } from './TrendingToys';
+import { Link, NavLink } from 'react-router-dom';
 
 const TrendingToysSection = () => {
     return (
@@ -44,10 +45,10 @@ const TrendingToysSection = () => {
                                     </p>
                                 </div>
 
-                                {/* Button */}
-                                <button className="btn btn-primary btn-sm w-full mt-2">
+                                {/* Link */}
+                                <Link to={`/viewmore/${service.toyId}`} className="btn btn-primary btn-sm w-full mt-2">
                                     View More
-                                </button>
+                                </Link>
 
                             </div>
 

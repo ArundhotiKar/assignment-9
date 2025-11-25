@@ -20,6 +20,12 @@ const RegisterPage = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        const errorMessage = validatePassword(password);
+        if (errorMessage) {
+            alert(errorMessage);
+            return;     // Stop registration
+        }
+
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
@@ -61,6 +67,25 @@ const RegisterPage = () => {
                 console.error(error);
             });
     };
+
+
+    const validatePassword = (password) => {
+        const uppercase = /[A-Z]/;
+        const lowercase = /[a-z]/;
+
+        if (password.length < 6) {
+            return "Password must be at least 6 characters long.";
+        }
+        if (!uppercase.test(password)) {
+            return "Password must contain at least one uppercase letter.";
+        }
+        if (!lowercase.test(password)) {
+            return "Password must contain at least one lowercase letter.";
+        }
+
+        return ""; // valid
+    };
+
 
 
     return (

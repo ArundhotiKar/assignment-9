@@ -29,8 +29,8 @@ const Navber = () => {
             </div>
 
             <div>
-                <NavLink to="/" className="text-xl">Home</NavLink>
-                <NavLink to="/myprofile" className="text-xl ml-5"> My Profile </NavLink>
+                <NavLink to="/" className="text-xl text-blue-500">Home</NavLink>
+                <NavLink to="/myprofile" className="text-xl ml-5 text-blue-500"> My Profile </NavLink>
             </div>
 
             <div>

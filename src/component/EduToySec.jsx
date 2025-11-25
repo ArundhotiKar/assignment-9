@@ -1,7 +1,10 @@
 import React from 'react';
 import { educationalToys } from './EducationalToy';
+import { Link, NavLink } from 'react-router-dom';
 
 const EduToySec = () => {
+
+
     return (
         <div className='mt-10'>
             <div className='text-blue-400 text-2xl font-semibold text-center'>Educational Toys</div>
@@ -50,9 +53,13 @@ const EduToySec = () => {
                                 </div>
 
                                 {/* View More Button */}
-                                <button className="btn btn-sm btn-primary w-full rounded-full text-xs py-1">
+                                <Link
+                                    to={`/viewmoreforedu/${service.id}`}
+                                    className="btn btn-success btn-sm w-full rounded-full mt-2 block text-center"
+                                >
                                     View More
-                                </button>
+                                </Link>
+
 
                             </div>
 
