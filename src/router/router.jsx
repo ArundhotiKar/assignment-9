@@ -4,6 +4,7 @@ import LoginPage from "../component/LoginPage";
 import RegisterPage from "../component/RegisterPage";
 import HomePage from "../component/HomePage";
 import MyProfile from "../component/MyProfile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -11,23 +12,23 @@ const router = createBrowserRouter([
     element: <HomeLayout></HomeLayout>,
     children: [
       {
-        path:'/',
-        element:<HomePage/>
+        path: '/',
+        element: <HomePage />
       },
       {
-         path:'/myprofile',
-         element: <MyProfile></MyProfile>
+        path: '/myprofile',
+        element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+      },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage></RegisterPage>
       }
-      
+
     ],
-  },
-  {
-    path: "/login",
-    element: <LoginPage></LoginPage>,
-  },
-  {
-    path: "/register",
-    element: <RegisterPage></RegisterPage>
   }
 ]);
 

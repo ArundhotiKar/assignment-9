@@ -12,6 +12,7 @@ const createUser = (email, password) => {
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     console.log('AuthProvider user:', user);
 
 
@@ -20,9 +21,10 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = auth.onAuthStateChanged((currentUser) => {
             console.log('Auth state changed:', currentUser);
             setUser(currentUser);
+            setLoading(false);
         });
 
-        return () => unsubscribe();
+        return () => unsubscribe(); // Cleanup subscription on unmount
 
     }, []);
 
@@ -48,10 +50,14 @@ const AuthProvider = ({ children }) => {
         createUser,
         logOut,
         logIn,
-        googleLogin
+        googleLogin,
+        loading,
+        setLoading
     };
 
-    return <AuthContext value={authData}>{children}</AuthContext>
+    return <AuthContext value={authData}>
+        {children}
+        </AuthContext>
 
 };
 

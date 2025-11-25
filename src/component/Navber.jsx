@@ -11,11 +11,11 @@ const Navber = () => {
         console.log('Logout clicked');
 
         logOut()
-        .then(() => {
-            alert('User logged out');
-        }).catch((error) => {
-            console.log('Logout error:', error);
-        });
+            .then(() => {
+                alert('User logged out');
+            }).catch((error) => {
+                console.log('Logout error:', error);
+            });
     }
     return (
         <div className='flex items-center justify-between'>
@@ -35,10 +35,41 @@ const Navber = () => {
 
             <div>
                 {user ? (
-                    <div className="login-btn flex gap-5">
-                        <img src={userIcon} alt="" />
-                        <button onClick={handleLogout} className="btn text-white text-xl bg-black px-10">Logout</button>
+                    <div className="login-btn flex items-center gap-6  p-4 rounded-xl">
+
+                        <div className="relative group w-fit">
+
+                            {/* Profile Image */}
+                            <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-indigo-500 shadow-md">
+                                <img
+                                    src={user?.photoURL || userIcon}
+                                    alt="User"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+
+                            {/* Tooltip on Hover */}
+                            <span
+                                className="absolute left-1/2 -translate-x-1/2 top-full mt-2 
+               bg-amber-700 text-white text-xs px-3 py-1 rounded-md 
+               opacity-0 group-hover:opacity-100 
+               transition-all duration-200 whitespace-nowrap">
+                                {user?.displayName || "User Name"}
+                            </span>
+
+                        </div>
+
+
+                        {/* Logout Button */}
+                        <button
+                            onClick={handleLogout}
+                            className="px-6 py-2 bg-black text-white text-lg rounded-full shadow hover:bg-gray-800 transition-all"
+                        >
+                            Logout
+                        </button>
+
                     </div>
+
                 ) : (
                     <div className="login-btn flex gap-5">
                         <img src={userIcon} alt="" />

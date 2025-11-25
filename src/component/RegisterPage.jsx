@@ -1,35 +1,52 @@
 import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { updateProfile } from "firebase/auth";
+import { Eye, EyeOff } from "lucide-react"; // optional icon library
+import { useState } from 'react';
 
 
 const RegisterPage = () => {
+    const [showPassword, setShowPassword] = useState(false);
 
-    const {createUser, setUser, googleLogin}= use  (AuthContext);
+    const { createUser, setUser, googleLogin } = use(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
-        // console.log(e.target);
         const form = e.target;
         const name = form.name.value;
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
 
         createUser(email, password)
-        .then(result=>{
-            const createdUser = result.user;
-            // console.log(createdUser);
-            form.reset();
-            setUser(createdUser);
-        })
-        .catch(error=>{
-            console.log(error.message);
-        })
+            .then(result => {
+                const createdUser = result.user;
 
-        navigate('/');
+                // Update user profile
+                updateProfile(createdUser, {
+                    displayName: name,
+                    photoURL: photoURL
+                })
+                    .then(() => {
+                        console.log("Profile updated successfully");
+                        setUser({
+                            ...createdUser,
+                            displayName: name,
+                            photoURL: photoURL
+                        });
+                        form.reset();
+                        navigate('/');
+                    })
+                    .catch(error => {
+                        console.log("Error updating profile:", error.message);
+                    });
+
+            })
+            .catch(error => {
+                console.log("Error creating user:", error.message);
+            });
     }
 
     // 🔥 Google Login Function
@@ -44,6 +61,8 @@ const RegisterPage = () => {
                 console.error(error);
             });
     };
+
+
     return (
 
         <form onSubmit={handleRegister} className="flex items-center justify-center min-h-screen">
@@ -59,15 +78,32 @@ const RegisterPage = () => {
                 <input name="email" type="email" className="input" placeholder="Email" required />
 
                 <label className="label">Password</label>
-                <input name="password" type="password" className="input" placeholder="Password" required />
+                <div className="relative">
+                    <input
+                        name="password"
+                        type={showPassword ? "text" : "password"}
+                        className="input w-full pr-12"
+                        placeholder="Password"
+                        required
+                    />
+
+                    {/* Eye Button */}
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2"
+                    >
+                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    </button>
+                </div>
 
                 <button type="submit" className="btn btn-neutral mt-4 w-full">
                     Register
                 </button>
 
                 {/* Google Login Button */}
-                <button 
-                    type="button" 
+                <button
+                    type="button"
                     className="btn btn-secondary mt-3 w-full"
                     onClick={handleGoogleLogin}
                 >
