@@ -8,9 +8,9 @@ const MyProfile = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const handleOpenForm = () => {
-        console.log('Before Clicked: ', isOpen)
+       // console.log('Before Clicked: ', isOpen)
         setIsOpen(!isOpen);
-        console.log('After Clicked: ', isOpen)
+        //console.log('After Clicked: ', isOpen)
     }
 
     const handleUpdateProfile = (e) => {

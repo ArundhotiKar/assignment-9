@@ -2,19 +2,20 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import userIcon from '../assets/user.png';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Navber = () => {
     const { user, logOut } = use(AuthContext);
 
     const handleLogout = () => {
         // Implement logout functionality here
-        console.log('Logout clicked');
+        //console.log('Logout clicked');
 
         logOut()
             .then(() => {
-                alert('User logged out');
+                toast.success('Logout Successful!');
             }).catch((error) => {
-                console.log('Logout error:', error);
+                //console.log('Logout error:', error);
             });
     }
     return (
