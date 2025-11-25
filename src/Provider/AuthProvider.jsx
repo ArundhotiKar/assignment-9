@@ -13,13 +13,13 @@ const createUser = (email, password) => {
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    console.log('AuthProvider user:', user);
+    //console.log('AuthProvider user:', user);
 
 
     //Observe auth state changes
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-            console.log('Auth state changed:', currentUser);
+            //console.log('Auth state changed:', currentUser);
             setUser(currentUser);
             setLoading(false);
         });

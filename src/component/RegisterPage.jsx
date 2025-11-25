@@ -4,6 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { updateProfile } from "firebase/auth";
 import { Eye, EyeOff } from "lucide-react"; // optional icon library
 import { useState } from 'react';
+import { toast } from 'react-toastify/unstyled';
 
 
 const RegisterPage = () => {
@@ -22,6 +23,7 @@ const RegisterPage = () => {
 
         const errorMessage = validatePassword(password);
         if (errorMessage) {
+            //toast.alert(errorMessage);
             alert(errorMessage);
             return;     // Stop registration
         }
@@ -36,7 +38,7 @@ const RegisterPage = () => {
                     photoURL: photoURL
                 })
                     .then(() => {
-                        console.log("Profile updated successfully");
+                        //console.log("Profile updated successfully");
                         setUser({
                             ...createdUser,
                             displayName: name,
@@ -46,12 +48,12 @@ const RegisterPage = () => {
                         navigate('/');
                     })
                     .catch(error => {
-                        console.log("Error updating profile:", error.message);
+                        //console.log("Error updating profile:", error.message);
                     });
 
             })
             .catch(error => {
-                console.log("Error creating user:", error.message);
+                //console.log("Error creating user:", error.message);
             });
     }
 

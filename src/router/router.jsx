@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import ViewMorePage from "../component/ViewMorePage";
 import ViewMoreEdu from "../component/ViewMoreEdu";
 import ViewMoreTrend from "../component/ViewMoreTrend";
+import ForgetPasswordPage from "../component/ForgetPasswordPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPage></RegisterPage>
+      },
+      {
+        path: "/forget-password/:email",
+        element: <ForgetPasswordPage></ForgetPasswordPage>
       },
       {
         path: "/viewmore/:id",
