@@ -7,6 +7,7 @@ import MyProfile from "../component/MyProfile";
 import PrivateRoute from "./PrivateRoute";
 import ViewMorePage from "../component/ViewMorePage";
 import ViewMoreEdu from "../component/ViewMoreEdu";
+import ViewMoreTrend from "../component/ViewMoreTrend";
 
 const router = createBrowserRouter([
   {
@@ -31,11 +32,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewmore/:id",
-        element: <ViewMorePage></ViewMorePage>
+        element:<PrivateRoute><ViewMorePage></ViewMorePage></PrivateRoute> 
       },
       {
         path:"/viewmoreforedu/:id",
-        element: <ViewMoreEdu></ViewMoreEdu>
+        element:<PrivateRoute><ViewMoreEdu></ViewMoreEdu></PrivateRoute>
+      },
+      {
+        path:"/viewmoretrend/:id",
+        element: <PrivateRoute><ViewMoreTrend></ViewMoreTrend></PrivateRoute>
       }
 
     ],

@@ -46,7 +46,7 @@ const TrendingToysSection = () => {
                                 </div>
 
                                 {/* Link */}
-                                <Link to={`/viewmore/${service.toyId}`} className="btn btn-primary btn-sm w-full mt-2">
+                                <Link to={`/viewmoretrend/${service.toyId}`} className="btn btn-primary btn-sm w-full mt-2">
                                     View More
                                 </Link>
 
