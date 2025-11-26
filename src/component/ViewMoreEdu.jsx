@@ -1,8 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { educationalToys } from './EducationalToy';
+import useTitle from "../hooks/useTitle";
+
 
 const ViewMoreEdu = () => {
+    useTitle("ToyTopia | View More Educational Toy Info");
     const { id } = useParams();
 
     const toy = educationalToys.find(item => item.id === id);

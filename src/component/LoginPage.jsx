@@ -2,8 +2,13 @@ import React, { use, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify/unstyled';
+import useTitle from "../hooks/useTitle";
+import { Eye, EyeOff } from "lucide-react"; // optional icon library
+
 
 const LoginPage = () => {
+    useTitle("ToyTopia | Login");
+    const [showPassword, setShowPassword] = useState(false);
 
     const { logIn, googleLogin, setUser } = use(AuthContext);
     const location = useLocation();
@@ -69,14 +74,32 @@ const LoginPage = () => {
                     required
                 />
 
+                
                 <label className="label">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    className="input"
-                    placeholder="Password"
-                    required
-                />
+
+                <div className="relative">
+                    <input
+                        name="password"
+                        type={showPassword ? "text" : "password"}
+                        className="input w-full pr-12"
+                        placeholder="Password"
+                        required
+                    />
+
+                    {/* Eye Icon Button */}
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+                    >
+                        {showPassword ? (
+                            <EyeOff size={20} className="text-gray-600" />
+                        ) : (
+                            <Eye size={20} className="text-gray-600" />
+                        )}
+                    </button>
+                </div>
+
 
                 <button type='submit' className="btn btn-neutral mt-4">
                     Login

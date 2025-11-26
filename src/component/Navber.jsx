@@ -13,7 +13,8 @@ const Navber = () => {
 
         logOut()
             .then(() => {
-                toast.success('Logout Successful!');
+                // toast.success('Logout Successful!');
+                alert('Logout Successful!');
             }).catch((error) => {
                 //console.log('Logout error:', error);
             });
@@ -30,57 +31,77 @@ const Navber = () => {
             </div>
 
             <div>
-                <NavLink to="/" className="text-xl text-blue-500">Home</NavLink>
-                <NavLink to="/myprofile" className="text-xl ml-5 text-blue-500"> My Profile </NavLink>
-            </div>
+                <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "text-xl text-white bg-blue-600 px-3 py-1 rounded"
+                            : "text-xl text-blue-500"
+                    }
+                >
+                    Home
+                </NavLink>
 
-            <div>
-                {user ? (
-                    <div className="login-btn flex items-center gap-6  p-4 rounded-xl">
+                <NavLink
+                    to="/myprofile"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "text-xl text-white bg-blue-600 px-3 py-1 rounded ml-5"
+                            : "text-xl text-blue-500 ml-5"
+                    }
+                >
+                    My Profile
+                </NavLink>
+                </div>
 
-                        <div className="relative group w-fit">
 
-                            {/* Profile Image */}
-                            <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-indigo-500 shadow-md">
-                                <img
-                                    src={user?.photoURL || userIcon}
-                                    alt="User"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
+                <div>
+                    {user ? (
+                        <div className="login-btn flex items-center gap-6  p-4 rounded-xl">
 
-                            {/* Tooltip on Hover */}
-                            <span
-                                className="absolute left-1/2 -translate-x-1/2 top-full mt-2 
+                            <div className="relative group w-fit">
+
+                                {/* Profile Image */}
+                                <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-indigo-500 shadow-md">
+                                    <img
+                                        src={user?.photoURL || userIcon}
+                                        alt="User"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+
+                                {/* Tooltip on Hover */}
+                                <span
+                                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2 
                bg-amber-700 text-white text-xs px-3 py-1 rounded-md 
                opacity-0 group-hover:opacity-100 
                transition-all duration-200 whitespace-nowrap">
-                                {user?.displayName || "User Name"}
-                            </span>
+                                    {user?.displayName || "User Name"}
+                                </span>
+
+                            </div>
+
+
+                            {/* Logout Button */}
+                            <button
+                                onClick={handleLogout}
+                                className="px-6 py-2 bg-black text-white text-lg rounded-full shadow hover:bg-gray-800 transition-all"
+                            >
+                                Logout
+                            </button>
 
                         </div>
 
+                    ) : (
+                        <div className="login-btn flex gap-5">
+                            <img src={userIcon} alt="" />
+                            <Link to="/login" className="btn text-white text-xl bg-black px-10">Login</Link>
+                        </div>
+                    )}
+                </div>
 
-                        {/* Logout Button */}
-                        <button
-                            onClick={handleLogout}
-                            className="px-6 py-2 bg-black text-white text-lg rounded-full shadow hover:bg-gray-800 transition-all"
-                        >
-                            Logout
-                        </button>
-
-                    </div>
-
-                ) : (
-                    <div className="login-btn flex gap-5">
-                        <img src={userIcon} alt="" />
-                        <Link to="/login" className="btn text-white text-xl bg-black px-10">Login</Link>
-                    </div>
-                )}
             </div>
-
-        </div>
-    );
+            );
 };
 
-export default Navber;
+            export default Navber;

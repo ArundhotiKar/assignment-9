@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useTitle from "../hooks/useTitle";
+
 
 const ViewMorePage = () => {
+    useTitle("ToyTopia | View More Toy Info");
     const { id } = useParams();
     const [serviceDetails, setServiceDetails] = useState(null);
 

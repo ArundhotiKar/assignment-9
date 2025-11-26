@@ -5,9 +5,12 @@ import { updateProfile } from "firebase/auth";
 import { Eye, EyeOff } from "lucide-react"; // optional icon library
 import { useState } from 'react';
 import { toast } from 'react-toastify/unstyled';
+import useTitle from "../hooks/useTitle";
+
 
 
 const RegisterPage = () => {
+    useTitle("ToyTopia | Register");
     const [showPassword, setShowPassword] = useState(false);
 
     const { createUser, setUser, googleLogin } = use(AuthContext);

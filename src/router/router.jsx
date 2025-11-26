@@ -9,6 +9,7 @@ import ViewMorePage from "../component/ViewMorePage";
 import ViewMoreEdu from "../component/ViewMoreEdu";
 import ViewMoreTrend from "../component/ViewMoreTrend";
 import ForgetPasswordPage from "../component/ForgetPasswordPage";
+import ErrorPage from "../component/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       }
 
     ],
+  },
+  {
+    path: "*",
+    element:<ErrorPage></ErrorPage>
   }
 ]);
 

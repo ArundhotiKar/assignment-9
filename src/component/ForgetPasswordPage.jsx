@@ -4,10 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import app from '../Firebase/firebase.config';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from "../hooks/useTitle";
+
 
 const auth = getAuth(app);
 
 const ForgetPasswordPage = () => {
+    useTitle("ToyTopia | Forget Password");
     const { email } = useParams();
     const navigate = useNavigate();
 

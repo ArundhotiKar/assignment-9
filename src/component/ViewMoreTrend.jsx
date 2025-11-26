@@ -1,8 +1,11 @@
 import React from 'react';
 import { trendingToys } from './TrendingToys';
 import { useParams } from 'react-router-dom';
+import useTitle from "../hooks/useTitle";
+
 
 const ViewMoreTrend = () => {
+    useTitle("ToyTopia | View More Trending Toy Info");
     const { id } = useParams();
 
     const toy = trendingToys.find(item => item.toyId === id);

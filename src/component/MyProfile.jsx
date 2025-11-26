@@ -1,8 +1,11 @@
 import React, { use, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import useTitle from "../hooks/useTitle";
+import { toast } from 'react-toastify';
 
 const MyProfile = () => {
+    useTitle("ToyTopia | My Profile");
     const { user, setUser } = use(AuthContext);
 
     const [isOpen, setIsOpen] = useState(false)
@@ -24,7 +27,8 @@ const MyProfile = () => {
             photoURL: photoURL
         }).then(() => {
             setUser({ ...user, displayName: name, photoURL: photoURL });
-            alert('Profile updated successfully!');
+            //alert('Profile updated successfully!');
+            toast.success('Profile updated successfully!');
         }).catch((error) => {
             console.error('Error updating profile:', error);
             alert('Error updating profile: ' + error.message);
